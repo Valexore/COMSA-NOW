@@ -12,6 +12,8 @@
 // /assets/js/studs-search.js
 document.addEventListener('DOMContentLoaded', function() {
   const searchToggle = document.getElementById('search-toggle');
+    const mobileSearchToggle = document.getElementById('mobile-search-toggle');
+
   const searchPopup = document.querySelector('.search-popup');
   const searchInput = document.querySelector('.search-input');
   const searchResults = document.createElement('div');
@@ -79,40 +81,58 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
   }
 
-  /**
-   * Event listeners
+    /**
+   * Event listeners for both desktop and mobile search toggles
    */
+  if (searchToggle) {
+    searchToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      toggleSearch();
+    });
+  }
 
-  // Toggle search popup
-  searchToggle.addEventListener('click', function(e) {
-    e.preventDefault();
-    searchPopup.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    searchInput.focus();
-  });
+  if (mobileSearchToggle) {
+    mobileSearchToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      toggleSearch();
+    });
+  }
 
   // Close when clicking outside
-  searchPopup.addEventListener('click', function(e) {
-    if (e.target === searchPopup) {
-      closeSearch();
-    }
-  });
+  if (searchPopup) {
+    searchPopup.addEventListener('click', function(e) {
+      if (e.target === searchPopup) {
+        closeSearch();
+      }
+    });
+  }
 
   // Search functionality
-  searchInput.addEventListener('input', function() {
-    const searchTerm = this.value.toLowerCase().trim();
-    if (searchTerm.length > 0) {
-      const results = studentSearchData.filter(item => 
-        item.title.toLowerCase().includes(searchTerm) || 
-        item.content.toLowerCase().includes(searchTerm) ||
-        (item.keywords && item.keywords.toLowerCase().includes(searchTerm))
-      );
-      displayResults(results);
-    } else {
-      clearResults();
-    }
-  });
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase().trim();
+      if (searchTerm.length > 0) {
+        const results = studentSearchData.filter(item => 
+          item.title.toLowerCase().includes(searchTerm) || 
+          item.content.toLowerCase().includes(searchTerm) ||
+          (item.keywords && item.keywords.toLowerCase().includes(searchTerm))
+        );
+        displayResults(results);
+      } else {
+        clearResults();
+      }
+    });
+  }
 
+  function toggleSearch() {
+    searchPopup.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (searchInput) {
+      searchInput.focus();
+    }
+  }
+
+  
   // display result items
   function displayResults(results) {
     searchResults.innerHTML = '';
