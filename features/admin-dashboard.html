@@ -248,6 +248,8 @@ body.dark-mode .text-muted {
   color: #999 !important;
 }
 </style>
+
+
 <body class="index-page">
   <!-- Main Content -->
   <div class="container-fluid">
@@ -271,8 +273,8 @@ body.dark-mode .text-muted {
               <a href="#students-section" class="btn text-start d-flex align-items-center gap-2">
                 <i class="ri-group-line"></i> <span>Students</span>
               </a>
-              <a href="#events-section" class="btn text-start d-flex align-items-center gap-2">
-                <i class="ri-calendar-event-line"></i> <span>Events</span>
+              <a href="posts.html" class="btn text-start d-flex align-items-center gap-2">
+                <i class="ri-file-text-line"></i> <span>Posts</span>
               </a>
               <a href="#content-section" class="btn text-start d-flex align-items-center gap-2">
                 <i class="ri-file-text-line"></i> <span>Content</span>
@@ -342,11 +344,11 @@ body.dark-mode .text-muted {
                 <div class="card-body">
                   <div class="d-flex justify-content-between align-items-center">
                     <div>
-                      <h6 class="text-muted mb-2">Active Events</h6>
-                      <h3 class="mb-0">8</h3>
+                      <h6 class="text-muted mb-2">Active Posts</h6>
+                      <h3 class="mb-0">24</h3>
                     </div>
                     <div class="stat-icon bg-success-light">
-                      <i class="ri-calendar-check-fill text-success"></i>
+                      <i class="ri-file-text-fill text-success"></i>
                     </div>
                   </div>
                   <div class="mt-3">
@@ -362,11 +364,11 @@ body.dark-mode .text-muted {
                 <div class="card-body">
                   <div class="d-flex justify-content-between align-items-center">
                     <div>
-                      <h6 class="text-muted mb-2">New Projects</h6>
-                      <h3 class="mb-0">24</h3>
+                      <h6 class="text-muted mb-2">New Announcements</h6>
+                      <h3 class="mb-0">5</h3>
                     </div>
                     <div class="stat-icon bg-warning-light">
-                      <i class="ri-lightbulb-flash-fill text-warning"></i>
+                      <i class="ri-megaphone-fill text-warning"></i>
                     </div>
                   </div>
                   <div class="mt-3">
@@ -414,9 +416,8 @@ body.dark-mode .text-muted {
                       <th>ID</th>
                       <th>Name</th>
                       <th>Email</th>
-                      <th>Program</th>
                       <th>Status</th>
-                      <th>Joined</th>
+                      <th>Created At</th>
                       <th>Actions</th>
                     </tr>
                   </thead>
@@ -430,7 +431,6 @@ body.dark-mode .text-muted {
                         </div>
                       </td>
                       <td>john.perez@university.edu</td>
-                      <td>Computer Science</td>
                       <td><span class="badge bg-success">Active</span></td>
                       <td>15 Jan 2024</td>
                       <td>
@@ -447,7 +447,6 @@ body.dark-mode .text-muted {
                         </div>
                       </td>
                       <td>sarah.tech@university.edu</td>
-                      <td>Information Technology</td>
                       <td><span class="badge bg-success">Active</span></td>
                       <td>20 Jan 2024</td>
                       <td>
@@ -464,7 +463,6 @@ body.dark-mode .text-muted {
                         </div>
                       </td>
                       <td>mike.dev@university.edu</td>
-                      <td>Software Engineering</td>
                       <td><span class="badge bg-warning">Pending</span></td>
                       <td>5 Feb 2024</td>
                       <td>
@@ -481,7 +479,6 @@ body.dark-mode .text-muted {
                         </div>
                       </td>
                       <td>eren.yeagar@university.edu</td>
-                      <td>Computer Science</td>
                       <td><span class="badge bg-success">Active</span></td>
                       <td>10 Feb 2024</td>
                       <td>
@@ -498,7 +495,6 @@ body.dark-mode .text-muted {
                         </div>
                       </td>
                       <td>tech.guy@university.edu</td>
-                      <td>Cybersecurity</td>
                       <td><span class="badge bg-danger">Inactive</span></td>
                       <td>15 Mar 2024</td>
                       <td>
@@ -512,108 +508,11 @@ body.dark-mode .text-muted {
             </div>
           </div>
 
-          <!-- Events Management Section -->
-          <div class="card mb-4" id="events-section">
-            <div class="card-header d-flex justify-content-between align-items-center">
-              <h5 class="mb-0">Event Management</h5>
-              <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#addEventModal">
-                <i class="ri-calendar-event-line"></i> Add Event
-              </button>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table id="eventsTable" class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Event Name</th>
-                      <th>Date</th>
-                      <th>Location</th>
-                      <th>Status</th>
-                      <th>Registrations</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>EVT001</td>
-                      <td>CS Expo 2024</td>
-                      <td>15 Jun 2024</td>
-                      <td>University Main Hall</td>
-                      <td><span class="badge bg-success">Active</span></td>
-                      <td>245/300</td>
-                      <td>
-                        <button class="btn btn-sm btn-outline-primary"><i class="ri-edit-line"></i></button>
-                        <button class="btn btn-sm btn-outline-danger"><i class="ri-delete-bin-line"></i></button>
-                        <button class="btn btn-sm btn-outline-info"><i class="ri-eye-line"></i></button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>EVT002</td>
-                      <td>Hackathon Workshop</td>
-                      <td>22 Jun 2024</td>
-                      <td>Computer Lab B</td>
-                      <td><span class="badge bg-success">Active</span></td>
-                      <td>120/150</td>
-                      <td>
-                        <button class="btn btn-sm btn-outline-primary"><i class="ri-edit-line"></i></button>
-                        <button class="btn btn-sm btn-outline-danger"><i class="ri-delete-bin-line"></i></button>
-                        <button class="btn btn-sm btn-outline-info"><i class="ri-eye-line"></i></button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>EVT003</td>
-                      <td>Tech Career Fair</td>
-                      <td>30 Jun 2024</td>
-                      <td>Student Center</td>
-                      <td><span class="badge bg-warning">Upcoming</span></td>
-                      <td>89/200</td>
-                      <td>
-                        <button class="btn btn-sm btn-outline-primary"><i class="ri-edit-line"></i></button>
-                        <button class="btn btn-sm btn-outline-danger"><i class="ri-delete-bin-line"></i></button>
-                        <button class="btn btn-sm btn-outline-info"><i class="ri-eye-line"></i></button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>EVT004</td>
-                      <td>AI Seminar</td>
-                      <td>10 Jul 2024</td>
-                      <td>Lecture Hall 3</td>
-                      <td><span class="badge bg-info">Draft</span></td>
-                      <td>0/100</td>
-                      <td>
-                        <button class="btn btn-sm btn-outline-primary"><i class="ri-edit-line"></i></button>
-                        <button class="btn btn-sm btn-outline-danger"><i class="ri-delete-bin-line"></i></button>
-                        <button class="btn btn-sm btn-outline-info"><i class="ri-eye-line"></i></button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>EVT005</td>
-                      <td>Alumni Meetup</td>
-                      <td>25 May 2024</td>
-                      <td>Alumni Center</td>
-                      <td><span class="badge bg-secondary">Completed</span></td>
-                      <td>75/80</td>
-                      <td>
-                        <button class="btn btn-sm btn-outline-primary"><i class="ri-edit-line"></i></button>
-                        <button class="btn btn-sm btn-outline-danger"><i class="ri-delete-bin-line"></i></button>
-                        <button class="btn btn-sm btn-outline-info"><i class="ri-eye-line"></i></button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
           <!-- Content Management Section -->
           <div class="card mb-4" id="content-section">
             <div class="card-header d-flex justify-content-between align-items-center">
               <h5 class="mb-0">Content Management</h5>
               <div>
-                <button class="btn btn-success btn-sm me-2" data-bs-toggle="modal" data-bs-target="#addPostModal">
-                  <i class="ri-add-line"></i> Add Post
-                </button>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addQuickLinkModal">
                   <i class="ri-link"></i> Add Quick Link
                 </button>
@@ -622,89 +521,14 @@ body.dark-mode .text-muted {
             <div class="card-body">
               <ul class="nav nav-tabs mb-4" id="contentTabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="posts-tab" data-bs-toggle="tab" data-bs-target="#posts-tab-pane" type="button" role="tab">Posts</button>
-                </li>
-                <li class="nav-item" role="presentation">
                   <button class="nav-link" id="links-tab" data-bs-toggle="tab" data-bs-target="#links-tab-pane" type="button" role="tab">Quick Links</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="announcements-tab" data-bs-toggle="tab" data-bs-target="#announcements-tab-pane" type="button" role="tab">Announcements</button>
+                  <button class="nav-link active" id="announcements-tab" data-bs-toggle="tab" data-bs-target="#announcements-tab-pane" type="button" role="tab">Announcements</button>
                 </li>
               </ul>
               
               <div class="tab-content" id="contentTabsContent">
-                <div class="tab-pane fade show active" id="posts-tab-pane" role="tabpanel">
-                  <div class="table-responsive">
-                    <table class="table table-hover">
-                      <thead>
-                        <tr>
-                          <th>ID</th>
-                          <th>Title</th>
-                          <th>Author</th>
-                          <th>Type</th>
-                          <th>Date</th>
-                          <th>Status</th>
-                          <th>Actions</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>POST001</td>
-                          <td>AI-powered Campus Navigation System</td>
-                          <td>John Perez</td>
-                          <td><span class="badge bg-primary">Project</span></td>
-                          <td>1 week ago</td>
-                          <td><span class="badge bg-success">Published</span></td>
-                          <td>
-                            <button class="btn btn-sm btn-outline-primary"><i class="ri-edit-line"></i></button>
-                            <button class="btn btn-sm btn-outline-danger"><i class="ri-delete-bin-line"></i></button>
-                            <button class="btn btn-sm btn-outline-info"><i class="ri-eye-line"></i></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>POST002</td>
-                          <td>Event Management System Update</td>
-                          <td>Eren Yeagar</td>
-                          <td><span class="badge bg-info">Update</span></td>
-                          <td>1 week ago</td>
-                          <td><span class="badge bg-success">Published</span></td>
-                          <td>
-                            <button class="btn btn-sm btn-outline-primary"><i class="ri-edit-line"></i></button>
-                            <button class="btn btn-sm btn-outline-danger"><i class="ri-delete-bin-line"></i></button>
-                            <button class="btn btn-sm btn-outline-info"><i class="ri-eye-line"></i></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>POST003</td>
-                          <td>New Research Opportunities</td>
-                          <td>Admin</td>
-                          <td><span class="badge bg-warning">Announcement</span></td>
-                          <td>3 days ago</td>
-                          <td><span class="badge bg-success">Published</span></td>
-                          <td>
-                            <button class="btn btn-sm btn-outline-primary"><i class="ri-edit-line"></i></button>
-                            <button class="btn btn-sm btn-outline-danger"><i class="ri-delete-bin-line"></i></button>
-                            <button class="btn btn-sm btn-outline-info"><i class="ri-eye-line"></i></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>POST004</td>
-                          <td>Upcoming Hackathon Details</td>
-                          <td>Admin</td>
-                          <td><span class="badge bg-warning">Announcement</span></td>
-                          <td>2 days ago</td>
-                          <td><span class="badge bg-secondary">Draft</span></td>
-                          <td>
-                            <button class="btn btn-sm btn-outline-primary"><i class="ri-edit-line"></i></button>
-                            <button class="btn btn-sm btn-outline-danger"><i class="ri-delete-bin-line"></i></button>
-                            <button class="btn btn-sm btn-outline-info"><i class="ri-eye-line"></i></button>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                
                 <div class="tab-pane fade" id="links-tab-pane" role="tabpanel">
                   <div class="table-responsive">
                     <table class="table table-hover">
@@ -753,7 +577,7 @@ body.dark-mode .text-muted {
                   </div>
                 </div>
                 
-                <div class="tab-pane fade" id="announcements-tab-pane" role="tabpanel">
+                <div class="tab-pane fade show active" id="announcements-tab-pane" role="tabpanel">
                   <div class="table-responsive">
                     <table class="table table-hover">
                       <thead>
@@ -835,30 +659,30 @@ body.dark-mode .text-muted {
                 <div class="col-md-6">
                   <div class="card">
                     <div class="card-header">
-                      <h6 class="mb-0">Top Posts</h6>
+                      <h6 class="mb-0">Top Announcements</h6>
                     </div>
                     <div class="card-body">
                       <div class="list-group">
                         <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                           <div>
-                            <h6 class="mb-1">AI-powered Campus Navigation</h6>
-                            <small class="text-muted">John Perez</small>
-                          </div>
-                          <span class="badge bg-primary rounded-pill">1,243 likes</span>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                          <div>
-                            <h6 class="mb-1">Event Management System</h6>
-                            <small class="text-muted">Eren Yeagar</small>
-                          </div>
-                          <span class="badge bg-primary rounded-pill">892 likes</span>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                          <div>
-                            <h6 class="mb-1">New Research Opportunities</h6>
+                            <h6 class="mb-1">System Maintenance</h6>
                             <small class="text-muted">Admin</small>
                           </div>
-                          <span class="badge bg-primary rounded-pill">756 likes</span>
+                          <span class="badge bg-primary rounded-pill">1,243 views</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                          <div>
+                            <h6 class="mb-1">Registration Deadline</h6>
+                            <small class="text-muted">Admin</small>
+                          </div>
+                          <span class="badge bg-primary rounded-pill">892 views</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                          <div>
+                            <h6 class="mb-1">New Scholarship Opportunity</h6>
+                            <small class="text-muted">Admin</small>
+                          </div>
+                          <span class="badge bg-primary rounded-pill">756 views</span>
                         </a>
                       </div>
                     </div>
@@ -882,19 +706,19 @@ body.dark-mode .text-muted {
                         </div>
                         <div class="activity-item d-flex mt-3">
                           <div class="activity-icon me-3">
-                            <i class="ri-calendar-event-fill text-primary"></i>
+                            <i class="ri-megaphone-fill text-primary"></i>
                           </div>
                           <div class="activity-content">
-                            <p class="mb-0"><strong>Event created:</strong> Tech Career Fair by Admin</p>
+                            <p class="mb-0"><strong>New announcement:</strong> System Maintenance</p>
                             <small class="text-muted">5 hours ago</small>
                           </div>
                         </div>
                         <div class="activity-item d-flex mt-3">
                           <div class="activity-icon me-3">
-                            <i class="ri-chat-4-fill text-info"></i>
+                            <i class="ri-link text-info"></i>
                           </div>
                           <div class="activity-content">
-                            <p class="mb-0"><strong>New comment:</strong> Sarah Tech commented on AI-powered Campus Navigation</p>
+                            <p class="mb-0"><strong>New quick link added:</strong> Research Opportunities</p>
                             <small class="text-muted">1 day ago</small>
                           </div>
                         </div>
@@ -919,8 +743,8 @@ body.dark-mode .text-muted {
       <a href="#students-section" class="text-center mt-2">
         <i class="ri-group-line fs-1"></i>
       </a>
-      <a href="#events-section" class="text-center mt-2">
-        <i class="ri-calendar-event-line fs-1"></i>
+      <a href="posts.html" class="text-center mt-2">
+        <i class="ri-file-text-line fs-1"></i>
       </a>
       <a href="#content-section" class="text-center mt-2">
         <i class="ri-file-text-line fs-1"></i>
@@ -963,38 +787,9 @@ body.dark-mode .text-muted {
               </div>
             </div>
             
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="studentProgram" class="form-label">Program</label>
-                <select class="form-select" id="studentProgram" required>
-                  <option value="">Select Program</option>
-                  <option value="Computer Science">Computer Science</option>
-                  <option value="Information Technology">Information Technology</option>
-                  <option value="Software Engineering">Software Engineering</option>
-                  <option value="Cybersecurity">Cybersecurity</option>
-                  <option value="Data Science">Data Science</option>
-                </select>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="studentYear" class="form-label">Year</label>
-                <select class="form-select" id="studentYear" required>
-                  <option value="">Select Year</option>
-                  <option value="1">First Year</option>
-                  <option value="2">Second Year</option>
-                  <option value="3">Third Year</option>
-                  <option value="4">Fourth Year</option>
-                </select>
-              </div>
-            </div>
-            
             <div class="mb-3">
               <label for="studentPhoto" class="form-label">Profile Photo</label>
               <input class="form-control" type="file" id="studentPhoto">
-            </div>
-            
-            <div class="mb-3">
-              <label for="studentBio" class="form-label">Bio (Optional)</label>
-              <textarea class="form-control" id="studentBio" rows="3"></textarea>
             </div>
             
             <div class="mb-3 form-check">
@@ -1011,144 +806,58 @@ body.dark-mode .text-muted {
     </div>
   </div>
 
-  <!-- Add Event Modal -->
-  <div class="modal fade" id="addEventModal" tabindex="-1" aria-hidden="true">
+  <!-- Add Announcement Modal -->
+  <div class="modal fade" id="addAnnouncementModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Add New Event</h5>
+          <h5 class="modal-title">Create New Announcement</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form>
             <div class="mb-3">
-              <label for="eventTitle" class="form-label">Event Title</label>
-              <input type="text" class="form-control" id="eventTitle" required>
+              <label for="announcementTitle" class="form-label">Title</label>
+              <input type="text" class="form-control" id="announcementTitle" required>
+            </div>
+            
+            <div class="mb-3">
+              <label for="announcementContent" class="form-label">Content</label>
+              <textarea class="form-control" id="announcementContent" rows="6" required></textarea>
             </div>
             
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="eventStartDate" class="form-label">Start Date & Time</label>
-                <input type="datetime-local" class="form-control" id="eventStartDate" required>
+                <label for="announcementStartDate" class="form-label">Start Date</label>
+                <input type="date" class="form-control" id="announcementStartDate" required>
               </div>
               <div class="col-md-6 mb-3">
-                <label for="eventEndDate" class="form-label">End Date & Time</label>
-                <input type="datetime-local" class="form-control" id="eventEndDate" required>
+                <label for="announcementEndDate" class="form-label">End Date</label>
+                <input type="date" class="form-control" id="announcementEndDate" required>
               </div>
             </div>
             
             <div class="mb-3">
-              <label for="eventLocation" class="form-label">Location</label>
-              <input type="text" class="form-control" id="eventLocation" required>
-            </div>
-            
-            <div class="mb-3">
-              <label for="eventDescription" class="form-label">Description</label>
-              <textarea class="form-control" id="eventDescription" rows="4" required></textarea>
-            </div>
-            
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="eventCapacity" class="form-label">Capacity</label>
-                <input type="number" class="form-control" id="eventCapacity" min="1">
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="eventCategory" class="form-label">Category</label>
-                <select class="form-select" id="eventCategory" required>
-                  <option value="">Select Category</option>
-                  <option value="Workshop">Workshop</option>
-                  <option value="Seminar">Seminar</option>
-                  <option value="Competition">Competition</option>
-                  <option value="Social">Social</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-            </div>
-            
-            <div class="mb-3">
-              <label for="eventImage" class="form-label">Event Image</label>
-              <input class="form-control" type="file" id="eventImage">
-            </div>
-            
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="eventRequiresRegistration">
-              <label class="form-check-label" for="eventRequiresRegistration">Requires registration</label>
-            </div>
-            
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="eventFeatured">
-              <label class="form-check-label" for="eventFeatured">Feature this event</label>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary">Add Event</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Add Post Modal -->
-  <div class="modal fade" id="addPostModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Create New Post</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="postTitle" class="form-label">Title</label>
-              <input type="text" class="form-control" id="postTitle" required>
-            </div>
-            
-            <div class="mb-3">
-              <label for="postType" class="form-label">Post Type</label>
-              <select class="form-select" id="postType" required>
-                <option value="">Select Type</option>
-                <option value="Project">Project</option>
-                <option value="Announcement">Announcement</option>
-                <option value="Update">Update</option>
-                <option value="News">News</option>
+              <label for="announcementPriority" class="form-label">Priority</label>
+              <select class="form-select" id="announcementPriority" required>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
               </select>
             </div>
             
             <div class="mb-3">
-              <label for="postContent" class="form-label">Content</label>
-              <textarea class="form-control" id="postContent" rows="6" required></textarea>
-            </div>
-            
-            <div class="mb-3">
-              <label for="postImages" class="form-label">Images</label>
-              <input class="form-control" type="file" id="postImages" multiple>
-            </div>
-            
-            <div class="mb-3">
-              <label for="postTags" class="form-label">Tags (comma separated)</label>
-              <input type="text" class="form-control" id="postTags" placeholder="e.g., AI, Web Development, Hackathon">
-            </div>
-            
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="postStatus" class="form-label">Status</label>
-                <select class="form-select" id="postStatus" required>
-                  <option value="Draft">Draft</option>
-                  <option value="Published">Published</option>
-                  <option value="Scheduled">Scheduled</option>
-                </select>
-              </div>
-              <div class="col-md-6 mb-3" id="scheduleDateContainer" style="display: none;">
-                <label for="postScheduleDate" class="form-label">Schedule Date</label>
-                <input type="datetime-local" class="form-control" id="postScheduleDate">
-              </div>
+              <label for="announcementStatus" class="form-label">Status</label>
+              <select class="form-select" id="announcementStatus" required>
+                <option value="draft">Draft</option>
+                <option value="published">Published</option>
+              </select>
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary">Create Post</button>
+          <button type="button" class="btn btn-primary">Create Announcement</button>
         </div>
       </div>
     </div>
@@ -1253,22 +962,6 @@ body.dark-mode .text-muted {
     responsive: true,
     pageLength: 10,
     lengthMenu: [5, 10, 25, 50]
-  });
-  
-  $('#eventsTable').DataTable({
-    responsive: true,
-    pageLength: 10,
-    lengthMenu: [5, 10, 25, 50]
-  });
-
-  // Post status change handler
-  document.getElementById('postStatus').addEventListener('change', function() {
-    const scheduleDateContainer = document.getElementById('scheduleDateContainer');
-    if (this.value === 'Scheduled') {
-      scheduleDateContainer.style.display = 'block';
-    } else {
-      scheduleDateContainer.style.display = 'none';
-    }
   });
 
   // Initialize charts

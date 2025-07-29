@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>COMSA-NOW - Posts Management</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../assets/img/favicon/site.webmanifest">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+  
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/admin-dash.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<style>
+    /* Admin Dashboard Specific Styles */
+
+/* Layout */
+.admin-content {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* Side Navigation - Admin Specific */
+.side-nav {
+  background-color: #fff;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.side-nav-header .badge {
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  margin-top: 5px;
+}
+
+.side-nav-menu i {
+  font-size: 1.2rem;
+  color: #7db832;
+}
+
+/* Stats Cards */
+.stat-card {
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.bg-primary-light {
+  background-color: rgba(13, 110, 253, 0.1);
+}
+
+.bg-success-light {
+  background-color: rgba(25, 135, 84, 0.1);
+}
+
+.bg-warning-light {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.bg-info-light {
+  background-color: rgba(13, 202, 240, 0.1);
+}
+
+/* Tables */
+.table {
+  font-size: 0.9rem;
+}
+
+.table th {
+  font-weight: 600;
+  color: #495057;
+  border-bottom-width: 2px;
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.card-header {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 15px 20px;
+}
+
+.card-header h5 {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Buttons */
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+/* Tabs */
+.nav-tabs {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  color: #6c757d;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+}
+
+.nav-tabs .nav-link.active {
+  color: #7db832;
+  border-bottom: 2px solid #7db832;
+  background-color: transparent;
+}
+
+/* Activity Feed */
+.activity-item {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-icon {
+  font-size: 1.2rem;
+}
+
+.activity-content p {
+  margin-bottom: 0.2rem;
+}
+
+/* Badges */
+.badge {
+  font-weight: 500;
+  padding: 0.35em 0.5em;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .admin-content {
+  background-color: #121212;
+}
+
+body.dark-mode .side-nav {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode .card,
+body.dark-mode .stat-card,
+body.dark-mode .table {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode .card-header,
+body.dark-mode .table th {
+  background-color: #252525;
+  color: #e0e0e0;
+  border-color: #333;
+}
+
+body.dark-mode .table td {
+  border-color: #333;
+}
+
+body.dark-mode .nav-tabs {
+  border-color: #333;
+}
+
+body.dark-mode .nav-tabs .nav-link {
+  color: #aaa;
+}
+
+body.dark-mode .nav-tabs .nav-link.active {
+  color: #7db832;
+}
+
+body.dark-mode .activity-item {
+  border-color: #333;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+  background-color: #252525;
+  border-color: #333;
+  color: #e0e0e0;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+  background-color: #252525;
+  color: #e0e0e0;
+}
+
+body.dark-mode .list-group-item {
+  background-color: #252525;
+  border-color: #333;
+  color: #e0e0e0;
+}
+
+body.dark-mode .text-muted {
+  color: #999 !important;
+}
+</style>
+
+<body class="index-page">
+  <!-- Main Content -->
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Side Navigation -->
+      <div class="col-md-2 d-none d-lg-block bg-light min-vh-100">
+        <div class="side-nav py-4 px-3 d-flex flex-column justify-content-between h-100">
+          <!-- Side Nav Header -->
+          <div>
+            <div class="text-center mb-5 side-nav-header">
+              <img src="../assets/img/logo.png" class="img-fluid" alt="COMSA Logo">
+              <h3 class="fw-bold">COMSA-NOW</h3>
+              <span class="badge bg-success">Admin Panel</span>
+            </div>
+
+            <!-- Nav Menu -->
+            <div class="side-nav-menu d-flex flex-column gap-3">
+              <a href="admin-dashboard.html" class="btn text-start d-flex align-items-center gap-2">
+                <i class="ri-dashboard-line"></i> <span>Dashboard</span>
+              </a>
+              <a href="admin-dashboard.html#students-section" class="btn text-start d-flex align-items-center gap-2">
+                <i class="ri-group-line"></i> <span>Students</span>
+              </a>
+              <a href="posts.html" class="btn text-start d-flex align-items-center gap-2 btn-active">
+                <i class="ri-file-text-line"></i> <span>Posts</span>
+              </a>
+              <a href="admin-dashboard.html#content-section" class="btn text-start d-flex align-items-center gap-2">
+                <i class="ri-file-text-line"></i> <span>Content</span>
+              </a>
+              <a href="admin-dashboard.html#analytics-section" class="btn text-start d-flex align-items-center gap-2">
+                <i class="ri-bar-chart-line"></i> <span>Analytics</span>
+              </a>
+              <a href="admin-dashboard.html#settings-section" class="btn text-start d-flex align-items-center gap-2">
+                <i class="ri-settings-line"></i> <span>Settings</span>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Side Nav Footer -->
+          <div class="text-muted small text-center mt-4">
+            <p>Logged in as <strong>admin_user</strong></p>
+            <button class="btn btn-sm btn-outline-danger">Logout</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="col-lg-10">
+        <!-- Mobile Only Header -->
+        <div class="d-lg-none d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
+          <div class="d-flex align-items-center">
+            <h5 class="ms-2 mb-0 fw-bold">COMSA-NOW Posts</h5>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <button type="button" class="btn p-0 border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#adminProfileModal">
+              <img src="../assets/img/team/sampleTeam.jpg" class="rounded-circle" alt="Profile" style="width: 40px; height: 40px;">
+            </button>
+          </div>
+        </div>
+
+        <!-- Posts Content -->
+        <div class="admin-content p-4">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold">Posts Management</h2>
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addPostModal">
+              <i class="ri-add-line"></i> Create Post
+            </button>
+          </div>
+
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table id="postsTable" class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Title</th>
+                      <th>Author</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                      <th>Stars</th>
+                      <th>Comments</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>POST001</td>
+                      <td>AI-powered Campus Navigation System</td>
+                      <td>John Perez</td>
+                      <td>1 week ago</td>
+                      <td><span class="badge bg-success">Published</span></td>
+                      <td>
+                        <i class="ri-star-fill text-warning"></i> 4.8 (124)
+                      </td>
+                      <td>23</td>
+                      <td>
+                        <button class="btn btn-sm btn-outline-primary"><i class="ri-edit-line"></i></button>
+                        <button class="btn btn-sm btn-outline-danger"><i class="ri-delete-bin-line"></i></button>
+                        <button class="btn btn-sm btn-outline-info"><i class="ri-eye-line"></i></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>POST002</td>
+                      <td>Event Management System Update</td>
+                      <td>Eren Yeagar</td>
+                      <td>1 week ago</td>
+                      <td><span class="badge bg-success">Published</span></td>
+                      <td>
+                        <i class="ri-star-fill text-warning"></i> 4.5 (89)
+                      </td>
+                      <td>15</td>
+                      <td>
+                        <button class="btn btn-sm btn-outline-primary"><i class="ri-edit-line"></i></button>
+                        <button class="btn btn-sm btn-outline-danger"><i class="ri-delete-bin-line"></i></button>
+                        <button class="btn btn-sm btn-outline-info"><i class="ri-eye-line"></i></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>POST003</td>
+                      <td>New Research Opportunities</td>
+                      <td>Admin</td>
+                      <td>3 days ago</td>
+                      <td><span class="badge bg-success">Published</span></td>
+                      <td>
+                        <i class="ri-star-fill text-warning"></i> 4.2 (56)
+                      </td>
+                      <td>8</td>
+                      <td>
+                        <button class="btn btn-sm btn-outline-primary"><i class="ri-edit-line"></i></button>
+                        <button class="btn btn-sm btn-outline-danger"><i class="ri-delete-bin-line"></i></button>
+                        <button class="btn btn-sm btn-outline-info"><i class="ri-eye-line"></i></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>POST004</td>
+                      <td>Upcoming Hackathon Details</td>
+                      <td>Admin</td>
+                      <td>2 days ago</td>
+                      <td><span class="badge bg-secondary">Draft</span></td>
+                      <td>
+                        <i class="ri-star-fill text-warning"></i> 0 (0)
+                      </td>
+                      <td>0</td>
+                      <td>
+                        <button class="btn btn-sm btn-outline-primary"><i class="ri-edit-line"></i></button>
+                        <button class="btn btn-sm btn-outline-danger"><i class="ri-delete-bin-line"></i></button>
+                        <button class="btn btn-sm btn-outline-info"><i class="ri-eye-line"></i></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Post Comments Section -->
+          <div class="card">
+            <div class="card-header">
+              <h5 class="mb-0">Post Comments</h5>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">
+                      AI-powered Campus Navigation System
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                      Event Management System Update
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                      New Research Opportunities
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="comments-section">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <h5>Comments on "AI-powered Campus Navigation System"</h5>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="commentsToggle" checked>
+                        <label class="form-check-label" for="commentsToggle">Show All</label>
+                      </div>
+                    </div>
+                    
+                    <div class="comment mb-3 p-3 bg-light rounded">
+                      <div class="d-flex justify-content-between mb-2">
+                        <div class="d-flex align-items-center">
+                          <img src="../assets/img/team/sampleTeam.jpg" class="rounded-circle me-2" width="30" height="30">
+                          <strong>Sarah Tech</strong>
+                        </div>
+                        <small class="text-muted">2 days ago</small>
+                      </div>
+                      <p class="mb-2">This is an amazing project! How can I contribute to it?</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <button class="btn btn-sm btn-outline-secondary me-2"><i class="ri-thumb-up-line"></i> 5</button>
+                          <button class="btn btn-sm btn-outline-secondary"><i class="ri-thumb-down-line"></i> 0</button>
+                        </div>
+                        <div>
+                          <button class="btn btn-sm btn-outline-danger"><i class="ri-delete-bin-line"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="comment mb-3 p-3 bg-light rounded">
+                      <div class="d-flex justify-content-between mb-2">
+                        <div class="d-flex align-items-center">
+                          <img src="../assets/img/team/sampleTeam.jpg" class="rounded-circle me-2" width="30" height="30">
+                          <strong>Mike Dev</strong>
+                        </div>
+                        <small class="text-muted">1 day ago</small>
+                      </div>
+                      <p class="mb-2">I've been using this for a week now and it's really helpful. The navigation is accurate!</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <button class="btn btn-sm btn-outline-secondary me-2"><i class="ri-thumb-up-line"></i> 3</button>
+                          <button class="btn btn-sm btn-outline-secondary"><i class="ri-thumb-down-line"></i> 1</button>
+                        </div>
+                        <div>
+                          <button class="btn btn-sm btn-outline-danger"><i class="ri-delete-bin-line"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="comment-form mt-4">
+                      <div class="mb-3">
+                        <textarea class="form-control" placeholder="Add a comment as admin..." rows="2"></textarea>
+                      </div>
+                      <button class="btn btn-primary btn-sm">Post Comment</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation Bar (for md and below) -->
+  <nav class="d-lg-none fixed-bottom bg-light border-top">
+    <div class="d-flex justify-content-around py-2">
+      <a href="admin-dashboard.html" class="text-center mt-2">
+        <i class="ri-dashboard-line fs-1"></i>
+      </a>
+      <a href="admin-dashboard.html#students-section" class="text-center mt-2">
+        <i class="ri-group-line fs-1"></i>
+      </a>
+      <a href="posts.html" class="text-center mt-2 btn-active-mobile">
+        <i class="ri-file-text-line fs-1"></i>
+      </a>
+      <a href="admin-dashboard.html#content-section" class="text-center mt-2">
+        <i class="ri-file-text-line fs-1"></i>
+      </a>
+      <a href="admin-dashboard.html#settings-section" class="text-center mt-2">
+        <i class="ri-settings-line fs-1"></i>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Add Post Modal -->
+  <div class="modal fade" id="addPostModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create New Post</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="postTitle" class="form-label">Title</label>
+              <input type="text" class="form-control" id="postTitle" required>
+            </div>
+            
+            <div class="mb-3">
+              <label for="postType" class="form-label">Post Type</label>
+              <select class="form-select" id="postType" required>
+                <option value="Announcement">Announcement</option>
+              </select>
+            </div>
+            
+            <div class="mb-3">
+              <label for="postContent" class="form-label">Content</label>
+              <textarea class="form-control" id="postContent" rows="6" required></textarea>
+            </div>
+            
+            <div class="mb-3">
+              <label for="postImages" class="form-label">Images</label>
+              <input class="form-control" type="file" id="postImages" multiple>
+            </div>
+            
+            <div class="mb-3">
+              <label for="postTags" class="form-label">Tags (comma separated)</label>
+              <input type="text" class="form-control" id="postTags" placeholder="e.g., AI, Web Development, Hackathon">
+            </div>
+            
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="postStatus" class="form-label">Status</label>
+                <select class="form-select" id="postStatus" required>
+                  <option value="Draft">Draft</option>
+                  <option value="Published">Published</option>
+                  <option value="Scheduled">Scheduled</option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3" id="scheduleDateContainer" style="display: none;">
+                <label for="postScheduleDate" class="form-label">Schedule Date</label>
+                <input type="datetime-local" class="form-control" id="postScheduleDate">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Create Post</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Profile Modal for Mobile -->
+  <div class="modal fade" id="adminProfileModal" tabindex="-1" aria-labelledby="adminProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-slideout modal-sm m-0 ms-auto">
+      <div class="modal-content vh-100">
+        <div class="modal-header">
+          <h5 class="modal-title" id="adminProfileModalLabel">Admin Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center mb-4">
+            <img src="../assets/img/team/sampleTeam.jpg" class="rounded-circle mb-3" width="100" height="100" alt="Admin Profile">
+            <h5>Admin User</h5>
+            <p class="text-muted">System Administrator</p>
+          </div>
+          
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">
+              <i class="ri-user-line me-2"></i> My Profile
+            </a>
+            <a href="admin-dashboard.html#settings-section" class="list-group-item list-group-item-action" data-bs-dismiss="modal">
+              <i class="ri-settings-line me-2"></i> Settings
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <i class="ri-notification-line me-2"></i> Notifications
+            </a>
+            <a href="#" class="list-group-item list-group-item-action text-danger">
+              <i class="ri-logout-box-line me-2"></i> Logout
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize DataTables
+      $('#postsTable').DataTable({
+        responsive: true,
+        pageLength: 10,
+        lengthMenu: [5, 10, 25, 50]
+      });
+
+      // Post status change handler
+      document.getElementById('postStatus').addEventListener('change', function() {
+        const scheduleDateContainer = document.getElementById('scheduleDateContainer');
+        if (this.value === 'Scheduled') {
+          scheduleDateContainer.style.display = 'block';
+        } else {
+          scheduleDateContainer.style.display = 'none';
+        }
+      });
+
+      // Dark mode toggle
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        darkModeToggle.addEventListener('change', function() {
+          document.body.classList.toggle('dark-mode');
+          localStorage.setItem('darkMode', this.checked);
+        });
+        
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+          document.body.classList.add('dark-mode');
+          darkModeToggle.checked = true;
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>
